@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+
+  /* Primitives */
+  --p-cloud: oklch(98% 0.009 220);
+  --p-paper: oklch(99.5% 0.003 220);
+  --p-ink: oklch(31% 0.018 205);
+  --p-slate: oklch(48% 0.02 215);
+  --p-muted: oklch(47% 0.016 220);
+  --p-grid: oklch(88% 0.012 220);
+  --p-border: oklch(82% 0.014 220);
+  --p-gold: oklch(84% 0.16 88);
+  --p-gold-strong: oklch(50% 0.11 73);
+  --p-cyan: oklch(72% 0.12 215);
+  --p-cyan-strong: oklch(48% 0.105 225);
+  --p-pink: oklch(65% 0.19 5);
+  --p-green: oklch(45% 0.11 145);
+  --p-red: oklch(52% 0.17 25);
+
+  /* Semantic tokens */
+  --background: var(--p-cloud);
+  --surface: var(--p-paper);
+  --surface-muted: color-mix(in oklch, var(--p-cloud) 70%, var(--p-paper));
+  --text: var(--p-ink);
+  --text-muted: var(--p-muted);
+  --border: var(--p-border);
+  --accent: var(--p-gold);
+  --accent-strong: var(--p-gold-strong);
+  --positive: var(--p-green);
+  --negative: var(--p-red);
+
+  /* Component tokens */
+  --chart-grid: var(--p-grid);
+  --chart-cursor: var(--p-slate);
+  --series-main: var(--p-gold-strong);
+  --series-secondary: var(--p-slate);
+  --series-scatter: var(--p-cyan-strong);
+  --series-regression: var(--p-pink);
+  --radius-panel: 12px;
+  --shadow-dialog: 0 14px 40px color-mix(in oklch, var(--p-ink) 12%, transparent);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--text);
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+button,
+a,
+select,
+input,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+select,
+input,
+summary,
+a {
+  outline: none;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+summary:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
